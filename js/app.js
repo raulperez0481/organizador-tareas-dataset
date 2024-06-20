@@ -29,6 +29,10 @@ function pintarTareas(arrayTareas) {
           <button class="btn-editar" data-index="${index}">Editar</button>
       </div>`;
   });
+
+
+  html+=`<div class="toast"></div>`;  
+
   panelTareas.innerHTML = html;
 
   document.querySelectorAll('.btn-eliminar').forEach(btn => {
@@ -51,12 +55,23 @@ function guardarTarea(e) {
   };
   console.log(tarea);
   let arrayTareasRecuperado = [];
+  let mensaje = '';
 
-  if (editando) {
-      arrayTareasRecuperado = JSON.parse(localStorage.getItem('tareas'));
-      arrayTareasRecuperado[idTarea.value] = tarea;
-      localStorage.setItem('tareas', JSON.stringify(arrayTareasRecuperado));
-  } else {
+  try{
+      if (editando) {
+        const index = idTarea.value;
+        arrayTareasRecuperado = JSON.parse(localStorage.getItem('tareas'));
+        arrayTareasRecuperado[index] = tarea;
+        localStorage.setItem('tareas', JSON.stringify(arrayTareasRecuperado));
+        editando = false;
+        btnGuardar.textContent = 'Guardar';
+        formTarea.reset();
+        pintarTareas(arrayTareasRecuperado);
+        mensaje='Tarea editada con exito';
+        showToast('exito', mensaje);
+        return;
+      }
+
       if (localStorage.getItem('tareas')) {
           // Recuperar tareas existentes
           arrayTareasRecuperado = JSON.parse(localStorage.getItem('tareas'));
@@ -64,13 +79,16 @@ function guardarTarea(e) {
       // Añadir nueva tarea al array
       arrayTareasRecuperado.push(tarea);
       localStorage.setItem('tareas', JSON.stringify(arrayTareasRecuperado));
+      
+      formTarea.reset();
+      pintarTareas(arrayTareasRecuperado);
+      mensaje='Tarea añadida con exito';
+      showToast('exito', mensaje);
+  } catch (error) {
+      console.error(error);
+      showToast('fracaso');
+
   }
-
-  btnGuardar.textContent = 'Guardar';
-  editando = false;
-
-  formTarea.reset();
-  pintarTareas(arrayTareasRecuperado);
 }
 
 function eliminarTarea(e) {
@@ -93,6 +111,19 @@ function editarTarea(e) {
   idTarea.value = index;
   editando = true;
   btnGuardar.textContent = 'Guardar cambios';
+}
+
+function showToast(tipo, mensaje) {
+  const toast = document.querySelector('.toast');
+  toast.textContent = mensaje;
+  toast.classList.remove('toast-error');
+  toast.classList.remove('toast-confirmacion');
+  toast.classList.add(`toast-${tipo}`);
+  console.log(toast);
+  toast.classList.add('toast-active');
+  setTimeout(() => {
+      toast.classList.remove('toast-active');
+  }, 3000);
 }
 
 formTarea.addEventListener('submit', guardarTarea);
