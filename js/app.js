@@ -15,11 +15,18 @@ const tituloTarea = document.querySelector('#titulo-tarea');
 const idTarea = document.querySelector('#id-tarea');
 const descripcionTarea = document.querySelector('#descripcion-tarea');
 const fechaTarea = document.querySelector('#fecha-tarea');
+const prioridadTarea = document.querySelector('#prioridad-tarea');
 let editando = false;
 
 function pintarTareas(arrayTareas) {
   console.log(arrayTareas);
   let html = '';
+  let totalTareas = arrayTareas.length;
+  let tareasAlta = 0;
+  let tareasMedia = 0;
+  let tareasBaja = 0;
+
+
   arrayTareas.forEach((tarea, index) => {
       let fecha = new Date(tarea.fecha);
 
@@ -29,7 +36,20 @@ function pintarTareas(arrayTareas) {
         month: '2-digit'
       });
 
-      html += `<div class="item-tarea">
+      // Contabilizar las tareas por prioridad
+      switch (tarea.prioridad) {
+        case 'alta':
+            tareasAlta++;
+            break;
+        case 'media':
+            tareasMedia++;
+            break;
+        case 'baja':
+            tareasBaja++;
+            break;
+    }
+
+      html += `<div class="item-tarea ${tarea.prioridad}">
           <h3 class="titulo-tarea">${tarea.titulo}</h3>
           <p class="descripcion-tarea">${tarea.descripcion}</p>
           <p class="fecha-tarea">${fechaFormateada}</p>
@@ -42,6 +62,12 @@ function pintarTareas(arrayTareas) {
   html+=`<div class="toast"></div>`;  
 
   panelTareas.innerHTML = html;
+
+  // Actualizar el resumen de tareas
+  document.querySelector('#total-tareas').textContent = totalTareas;
+  document.querySelector('#tareas-alta').textContent = tareasAlta;
+  document.querySelector('#tareas-media').textContent = tareasMedia;
+  document.querySelector('#tareas-baja').textContent = tareasBaja;
 
   document.querySelectorAll('.btn-eliminar').forEach(btn => {
       btn.addEventListener('click', eliminarTarea);
@@ -59,9 +85,11 @@ function guardarTarea(e) {
   const tarea = {
       titulo: tituloTarea.value,
       descripcion: descripcionTarea.value,
-      fecha: fechaTarea.value
+      fecha: fechaTarea.value,
+      prioridad: prioridadTarea.value
   };
   console.log(tarea);
+  console.log('la prioridad',prioridadTarea.value);
   let arrayTareasRecuperado = [];
   let mensaje = '';
 

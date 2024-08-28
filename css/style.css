@@ -42,6 +42,20 @@ body{
   border-radius: 5px;
   margin-bottom: 20px;
   position: relative;
+  border-top: 4px solid transparent;
+}
+
+.container .panel-tareas .item-tarea.alta {
+  border-top-color: red; 
+  animation: parpadeo 4s infinite ease-in-out;
+}
+
+.container .panel-tareas .item-tarea.media {
+  border-top-color: orange; 
+}
+
+.container .panel-tareas .item-tarea.baja {
+  border-top-color: rgb(10, 236, 10);
 }
 
 .container .panel-tareas .item-tarea h3{
@@ -91,6 +105,50 @@ body{
   border-left: 1px solid #000;
 }
 
+/*PANEL INFORMATIVO*/
+
+.circulo {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.circulo-alta {
+  background-color: red;
+}
+
+.circulo-media {
+  background-color: orange;
+}
+
+.circulo-baja {
+  background-color: rgb(10, 236, 10);
+}
+
+.container .controles .panel-informativo{
+  padding: 3rem 1rem;
+}
+
+.container .controles .panel-informativo h3{
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.container .controles .panel-informativo .total-tareas{
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.container .controles .panel-informativo .numero-tareas{
+  font-weight: 600;
+}
+
+.container .controles .panel-informativo p{
+  padding-bottom: 0.6rem;
+}
 
 
 /* FORMULARIO */
@@ -227,6 +285,15 @@ input, textarea, select, button {
   100% {
     opacity: 0;
     transform: translateX(0%);
+  }
+}
+
+@keyframes parpadeo {
+  0%, 100% {
+    border-top-color: red; /* Color visible */
+  }
+  50% {
+    border-top-color: transparent; /* Color invisible para simular el parpadeo */
   }
 }
 
