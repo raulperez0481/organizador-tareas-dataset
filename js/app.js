@@ -21,12 +21,20 @@ function pintarTareas(arrayTareas) {
   console.log(arrayTareas);
   let html = '';
   arrayTareas.forEach((tarea, index) => {
+      let fecha = new Date(tarea.fecha);
+
+      // Formatear la fecha como dd/MM
+      let fechaFormateada = fecha.toLocaleDateString("es-ES", {
+        day: '2-digit',
+        month: '2-digit'
+      });
+
       html += `<div class="item-tarea">
           <h3 class="titulo-tarea">${tarea.titulo}</h3>
           <p class="descripcion-tarea">${tarea.descripcion}</p>
-          <p class="fecha-tarea">${tarea.fecha}</p>
-          <button class="btn-eliminar" data-index="${index}">Eliminar</button>
-          <button class="btn-editar" data-index="${index}">Editar</button>
+          <p class="fecha-tarea">${fechaFormateada}</p>
+          <i class="btn-eliminar fas fa-trash-alt" data-index="${index}"></i>
+          <i class="btn-editar fas fa-edit" data-index="${index}"></i>
       </div>`;
   });
 

@@ -1,117 +1,234 @@
 *,*::after,*::before{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-family: 'Raleway', sans-serif;
+  font-size: 62.5%;
 }
 
 body{
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  color:#303030;
 }
 
 .container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.container .panel-tareas{
-    width: 85%;
-    display: flex;
-    flex-wrap: wrap;
-    gap:10px;
-    padding: 10px;
-    position: relative;
 
+/* PANEL DE TAREAS */
+
+.container .panel-tareas{
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;
+  padding: 10px;
+  position: relative;
 }
 
 .container .panel-tareas .item-tarea{
-    width: 24.5%;
-    padding: 20px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  width: 24.5%;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
 }
+
+.container .panel-tareas .item-tarea h3{
+  text-align: center;
+  padding-bottom: 0.8rem;
+}
+
+.container .panel-tareas .item-tarea p{
+  font-size: 1.4rem;
+  padding-bottom: 2rem;
+}
+
+.container .panel-tareas .item-tarea .fecha-tarea{
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0.6rem;
+  font-weight: 600;
+  padding-bottom: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container .panel-tareas .item-tarea i{
+  font-size: 2rem;
+  position: absolute;
+  cursor: pointer;
+}
+
+.container .panel-tareas .item-tarea .btn-eliminar{
+  color: red;
+  top:1.6rem;
+  right:0.4rem;
+}
+
+.container .panel-tareas .item-tarea .btn-editar{
+  bottom: 0.3rem;
+  right:0.3rem;
+}
+
+
+/* PANEL DERECHO */
 
 .container .controles{
-    width: 15%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid #000;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #000;
 }
 
-.container .controles .form-tarea{
+
+
+/* FORMULARIO */
+
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: inherit;
+  width: 90%;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.controles .form-tarea{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
 
-.container .controles .form-tarea input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.controles .form-tarea ::placeholder{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
 }
 
-.container .controles .form-tarea textarea{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin-bottom: 10px;
+.controles .form-tarea input:focus{
+    outline: none;
+    border: 2px solid rgb(168, 128, 221);
 }
 
-.container .controles .form-tarea button[type="submit"]{
-    width: 100%;
-    padding: 10px;
+.controles .form-tarea textarea{
+    resize: none;
 }
 
-.toast{
-    width: 300px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+.controles .form-tarea textarea:focus{
+    outline: none;
+    border: 2px solid rgb(168, 128, 221);
+}
+
+.controles .form-tarea button{
     background-color: #000;
     color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    border-radius: 0.5rem;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    transition: 0.2s ease-in;
-    display: none;
-  }
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
 
-  .toast-error {
-    background-color: red;
-  }
-  
-  .toast-confirmacion {
-    background-color: rgb(20, 185, 20);
-  }
+.controles .form-tarea button:hover{
+    opacity: 0.8;
+}
 
-  .toast-active {
-    display: block;
-    animation: slideinTop 4s ease-out forwards;
-  }
+.controles .form-tarea .custom-select{
+  position:relative;
+  width: 90%;
+}
 
-  @keyframes slideinTop {
-    0% {
-      transform: translateY(0%);
-    }
-    30%, 50%, 70% {
-      opacity: 1;
-      transform: translateY(50%);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(0%);
-    }
+.controles .form-tarea select{
+  /*reset styles applied by the browser*/
+  appearance: none;
+  outline:0;
+  border: 2px solid #000;
+  box-shadow: none;
+  font-family: inherit;
+
+  /*my styles*/
+  width: 100%;
+  padding:1rem;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.controles .form-tarea select:hover{
+  cursor:pointer;
+}
+
+/*remove arrow IE*/
+.controles .form-tarea select::-ms-expand {
+  display: none;
+}
+
+/*my arrow*/
+.controles .form-tarea .custom-select::after{
+  content:"\f0d7";
+  font-family: "FontAwesome";
+  right:18px;
+  top:6px;
+  position:absolute;
+  pointer-events:none;
+  font-size:2rem
+}
+
+
+/* NOTIFICACIONES */
+
+.toast{
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition: 0.2s ease-in;
+  display: none;
+}
+
+.toast-error {
+  background-color: red;
+}
+
+.toast-confirmacion {
+  background-color: rgb(20, 185, 20);
+}
+
+.toast-active {
+  display: block;
+  animation: slideinTop 4s ease-out forwards;
+}
+
+@keyframes slideinTop {
+  0% {
+    transform: translateY(0%);
   }
+  30%, 50%, 70% {
+    opacity: 1;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0%);
+  }
+}
 
 
 

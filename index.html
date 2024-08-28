@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,6 +20,14 @@
                 <input type="text" id="titulo-tarea" placeholder="Título de la tarea">
                 <textarea id="descripcion-tarea"  placeholder="Descripción"></textarea>
                 <input type="date" id="fecha-tarea">
+                <div class="custom-select">
+                    <select id="prioridad-tarea" name="prioridad-tarea">
+                        <option value="-">Prioridad</option>
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
                 <input type="hidden" id="id-tarea">
                 <button class="btn-guardar">Guardar</button>
             </form>
