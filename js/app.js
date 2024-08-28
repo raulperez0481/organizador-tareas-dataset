@@ -16,6 +16,10 @@ const idTarea = document.querySelector('#id-tarea');
 const descripcionTarea = document.querySelector('#descripcion-tarea');
 const fechaTarea = document.querySelector('#fecha-tarea');
 const prioridadTarea = document.querySelector('#prioridad-tarea');
+const dialogConfirm= document.querySelector('#customDialogConfirm');
+const closeButton = dialogConfirm.querySelector('#close-button-confirm');
+const buttonAccept= dialogConfirm.querySelector('#accept');
+const buttonCancel= dialogConfirm.querySelector('#cancel');
 let editando = false;
 
 function pintarTareas(arrayTareas) {
@@ -70,7 +74,7 @@ function pintarTareas(arrayTareas) {
   document.querySelector('#tareas-baja').textContent = tareasBaja;
 
   document.querySelectorAll('.btn-eliminar').forEach(btn => {
-      btn.addEventListener('click', eliminarTarea);
+      btn.addEventListener('click', showDialogDeleteTask);
   });
 
   document.querySelectorAll('.btn-editar').forEach(btn => {
@@ -127,8 +131,7 @@ function guardarTarea(e) {
   }
 }
 
-function eliminarTarea(e) {
-  const index = e.target.getAttribute('data-index');
+function eliminarTarea(index) {
   console.log(index);
   const arrayTareasRecuperado = JSON.parse(localStorage.getItem('tareas'));
   arrayTareasRecuperado.splice(index, 1);
@@ -160,6 +163,29 @@ function showToast(tipo, mensaje) {
   setTimeout(() => {
       toast.classList.remove('toast-active');
   }, 3000);
+}
+
+
+function showDialogDeleteTask(e) {
+  const index = e.target.getAttribute('data-index');
+  dialogConfirm.style.display = 'flex'; // Cambia el display a flex
+  dialogConfirm.showModal();
+  
+  closeButton.addEventListener('click', () => {
+      dialogConfirm.close();
+      dialogConfirm.style.removeProperty('display'); // Elimina la propiedad display
+  });
+
+  buttonAccept.addEventListener('click', function() {
+    eliminarTarea(index);
+    dialogConfirm.close();
+    dialogConfirm.style.removeProperty('display'); // Elimina la propiedad display
+  });
+
+  buttonCancel.addEventListener('click', () => {
+    dialogConfirm.close();
+    dialogConfirm.style.removeProperty('display'); // Elimina la propiedad display
+  });      
 }
 
 formTarea.addEventListener('submit', guardarTarea);
