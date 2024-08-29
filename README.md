@@ -36,7 +36,7 @@ Este es un proyecto de gestión de tareas basado en JavaScript, HTML y CSS. Perm
         Haz clic en el ícono de la papelera al lado de la tarea que deseas eliminar.
         Confirma la eliminación en el cuadro de diálogo que aparece.
 
-    **Resumen de tareas:**
+   **Resumen de tareas**
         La interfaz muestra un resumen del número total de tareas y la cantidad de tareas según la prioridad.
 
 
@@ -44,11 +44,11 @@ Este es un proyecto de gestión de tareas basado en JavaScript, HTML y CSS. Perm
 
 Las contribuciones son bienvenidas. Si deseas colaborar, sigue estos pasos:
 
-    Haz un fork de este repositorio.
-    Crea una rama nueva (git checkout -b feature/nueva-funcionalidad).
-    Realiza tus cambios y haz commit (git commit -am 'Añadir nueva funcionalidad').
-    Sube los cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
-    Abre un Pull Request aquí.
+   -Haz un fork de este repositorio.
+   -Crea una rama nueva (git checkout -b feature/nueva-funcionalidad).
+   -Realiza tus cambios y haz commit (git commit -am 'Añadir nueva funcionalidad').
+   -Sube los cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
+   -Abre un Pull Request aquí.
 
 ## Licencia
 
