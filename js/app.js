@@ -137,6 +137,8 @@ function eliminarTarea(index) {
   arrayTareasRecuperado.splice(index, 1);
   localStorage.setItem('tareas', JSON.stringify(arrayTareasRecuperado));
   pintarTareas(arrayTareasRecuperado);
+  mensaje='Tarea eliminada con exito';
+  showToast('exito', mensaje);
 }
 
 function editarTarea(e) {
@@ -147,6 +149,7 @@ function editarTarea(e) {
   tituloTarea.value = itemEditar.titulo;
   descripcionTarea.value = itemEditar.descripcion;
   fechaTarea.value = itemEditar.fecha;
+  prioridadTarea.value = itemEditar.prioridad; // Establece el valor de la prioridad en el select
   idTarea.value = index;
   editando = true;
   btnGuardar.textContent = 'Guardar cambios';
