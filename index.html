@@ -17,12 +17,12 @@
         </div>
         <div class="controles">
             <form class="form-tarea">
-                <input type="text" id="titulo-tarea" placeholder="Título de la tarea">
+                <input type="text" id="titulo-tarea" placeholder="Título de la tarea" required>
                 <textarea id="descripcion-tarea"  placeholder="Descripción"></textarea>
                 <input type="date" id="fecha-tarea">
                 <div class="custom-select">
-                    <select id="prioridad-tarea" name="prioridad-tarea">
-                        <option value="-">Prioridad</option>
+                    <select id="prioridad-tarea" name="prioridad-tarea" required>
+                        <option value="" selected disabled>Seleccionar Prioridad</option>
                         <option value="baja">Baja</option>
                         <option value="media">Media</option>
                         <option value="alta">Alta</option>
