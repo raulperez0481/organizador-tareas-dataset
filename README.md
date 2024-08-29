@@ -39,22 +39,8 @@ Este es un proyecto de gestión de tareas basado en JavaScript, HTML y CSS. Perm
     **Resumen de tareas:**
         La interfaz muestra un resumen del número total de tareas y la cantidad de tareas según la prioridad.
 
-Estructura del proyecto
-proyecto-gestion-tareas/
-│
-├── index.html         # Archivo principal HTML
-├── style.css          # Archivo CSS para estilos
-├── script.js          # Lógica principal del proyecto en JavaScript
-└── README.md          # Este archivo
 
-Personalización
-
-Puedes personalizar los siguientes aspectos del proyecto:
-
-    Estilos CSS: Modifica style.css para cambiar la apariencia de la aplicación.
-    Validación y lógica: Modifica script.js para ajustar la lógica de validación o agregar nuevas características.
-
-Contribuciones
+## Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas colaborar, sigue estos pasos:
 
@@ -64,6 +50,6 @@ Las contribuciones son bienvenidas. Si deseas colaborar, sigue estos pasos:
     Sube los cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
     Abre un Pull Request aquí.
 
-Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
