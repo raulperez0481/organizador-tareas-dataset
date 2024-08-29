@@ -23,20 +23,20 @@ Este es un proyecto de gestión de tareas basado en JavaScript, HTML y CSS. Perm
 
 3.Abre el archivo index.html en tu navegador preferido para iniciar la aplicación.
 
-Uso
-    Añadir una nueva tarea:
+## Uso
+   **Añadir una nueva tarea:**
         Rellena el formulario con el título, descripción, fecha y prioridad de la tarea.
         Haz clic en el botón "Guardar" para añadir la tarea.
 
-    Editar una tarea existente:
+  **Editar una tarea existente:**
         Haz clic en el ícono de edición (el lápiz) al lado de la tarea que deseas editar.
         Modifica los campos según sea necesario y haz clic en "Guardar cambios".
 
-    Eliminar una tarea:
+   **Eliminar una tarea:**
         Haz clic en el ícono de la papelera al lado de la tarea que deseas eliminar.
         Confirma la eliminación en el cuadro de diálogo que aparece.
 
-    Resumen de tareas:
+    **Resumen de tareas:**
         La interfaz muestra un resumen del número total de tareas y la cantidad de tareas según la prioridad.
 
 Estructura del proyecto
